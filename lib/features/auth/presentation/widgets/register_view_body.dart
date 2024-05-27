@@ -1,23 +1,25 @@
+import 'package:animato/core/utils/app_router.dart';
 import 'package:animato/core/utils/assets.dart';
 import 'package:animato/core/utils/styles.dart';
 import 'package:animato/features/auth/presentation/widgets/custom_text_form_field.dart';
-import 'package:animato/features/splash/presentation/widgets/auth_using_number.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
+import '../../../../core/utils/widgets/custom_button.dart';
+import '../../../../core/utils/widgets/custom_divider.dart';
+import '../../../../core/utils/widgets/my_behavior.dart';
 import 'auth_using_social_media.dart';
-import 'custom_button.dart';
-import 'custom_divider.dart';
-import 'my_behavior.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({super.key});
+class RegisterViewBody extends StatefulWidget {
+  const RegisterViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<RegisterViewBody> createState() => _RegisterViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
-  String? email, password;
+class _RegisterViewBodyState extends State<RegisterViewBody> {
+  String? username, email, password, confirmPassword;
 
   final GlobalKey<FormState> _formKey = GlobalKey();
 
@@ -28,7 +30,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(AssetsData.kBackground), fit: BoxFit.cover),
+            image: AssetImage(AssetsData.kRegisterBackground),
+            fit: BoxFit.cover),
       ),
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -91,6 +94,22 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           height: 8,
                         ),
                         const Text(
+                          "Username",
+                          style: Styles.kTextStyle14,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        CustomTextFormField(
+                          hintText: "Enter your username",
+                          onChanged: (text) {
+                            username = text;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text(
                           "Email",
                           style: Styles.kTextStyle14,
                         ),
@@ -122,25 +141,25 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         const SizedBox(
                           height: 8,
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 2, bottom: 2),
-                          alignment: Alignment.topRight,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Forgot Password ?",
-                              style: Styles.kTextStyle14.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
+                        const Text(
+                          "Confirm Password",
+                          style: Styles.kTextStyle14,
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 8,
+                        ),
+                        CustomTextFormField(
+                          hintText: "Confirm your password",
+                          onChanged: (text) {
+                            password = text;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 8,
                         ),
                         Center(
                           child: CustomButton(
-                            label: "Login",
+                            label: "Signup",
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
                               } else {
@@ -152,13 +171,27 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           ),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
-                        const Center(child: Text("Continue with")),
-                        const SizedBox(
-                          height: 20,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Have an account ? "),
+                            InkWell(
+                              onTap: () {
+                                AppRouter.pushReplacementNavigation(
+                                    view: AppRouter.kLoginView,
+                                    transition: Transition.leftToRight,
+                                    milliseconds: 350);
+                              },
+                              child: Text(
+                                "Login",
+                                style: Styles.kTextStyle14
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                            )
+                          ],
                         ),
-                        const AuthUsingSocialMedia(),
                         const SizedBox(
                           height: 10,
                         ),
@@ -166,9 +199,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         const SizedBox(
                           height: 10,
                         ),
-                        const AuthUsingNumber(),
+                        const AuthUsingSocialMedia(),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                       ],
                     ),

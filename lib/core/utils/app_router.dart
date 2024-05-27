@@ -14,11 +14,20 @@ abstract class AppRouter {
     kRegisterView: const RegisterView(),
   };
 
-  static void navigation({required String view}) {
+  static void pushNavigation(
+      {required String view, Transition? transition, int? milliseconds}) {
     Get.to(
       _views[view],
-      transition: Transition.fadeIn,
-      duration: const Duration(milliseconds: 1200)
+      transition: transition ?? Transition.fade,
+      duration: Duration(milliseconds: milliseconds ?? 1200),
+    );
+  }
+  static void pushReplacementNavigation(
+      {required String view, Transition? transition, int? milliseconds}) {
+    Get.offAll(
+      _views[view],
+      transition: transition ?? Transition.fade,
+      duration: Duration(milliseconds: milliseconds ?? 1200),
     );
   }
 }

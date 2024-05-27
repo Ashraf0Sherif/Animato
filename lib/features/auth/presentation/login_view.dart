@@ -1,4 +1,4 @@
-import 'package:animato/features/splash/presentation/widgets/login_view_body.dart';
+import 'package:animato/features/auth/presentation/widgets/login_view_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {

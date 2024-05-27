@@ -1,3 +1,4 @@
+import 'package:animato/features/auth/presentation/widgets/register_view_body.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
@@ -5,6 +6,6 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const RegisterViewBody();
   }
 }

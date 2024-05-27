@@ -19,7 +19,7 @@ class CustomDivider extends StatelessWidget {
         SizedBox(
           width: 20,
         ),
-        Text("or"),
+        Text("or continue with"),
         SizedBox(
           width: 20,
         ),

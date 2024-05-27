@@ -1,4 +1,4 @@
-import 'package:animato/features/splash/presentation/widgets/social_media_button.dart';
+import 'package:animato/features/auth/presentation/widgets/social_media_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';

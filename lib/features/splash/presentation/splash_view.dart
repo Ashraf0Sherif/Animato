@@ -1,6 +1,7 @@
 import 'package:animato/core/utils/app_router.dart';
 import 'package:animato/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -13,7 +14,10 @@ class _SplashViewState extends State<SplashView> {
   void homeNavigation() {
     Future.delayed(
       const Duration(seconds: 1),
-      () => AppRouter.navigation(view: AppRouter.kLoginView),
+      () => AppRouter.pushReplacementNavigation(
+          view: AppRouter.kLoginView,
+          milliseconds: 1200,
+          transition: Transition.fadeIn),
     );
   }
 
