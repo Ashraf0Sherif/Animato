@@ -1,3 +1,4 @@
+import 'package:animato/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AuthUsingNumber extends StatelessWidget {
@@ -13,9 +14,9 @@ class AuthUsingNumber extends StatelessWidget {
         const Text("Login using "),
         InkWell(
           onTap: () {},
-          child: const Text(
+          child: Text(
             "Phone Number",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: Styles.kTextStyle14.copyWith(fontWeight: FontWeight.bold),
           ),
         )
       ],

@@ -1,4 +1,5 @@
 import 'package:animato/core/utils/assets.dart';
+import 'package:animato/core/utils/styles.dart';
 import 'package:animato/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:animato/features/splash/presentation/widgets/auth_using_number.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +30,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         image: DecorationImage(
             image: AssetImage(AssetsData.kBackground), fit: BoxFit.cover),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.black38.withOpacity(0.123),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Form(
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Form(
             key: _formKey,
             autovalidateMode: autovalidateMode,
             child: Padding(
@@ -49,48 +50,49 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           height: 20,
                         ),
                         Center(
-                          child: Image.asset(
-                            AssetsData.kLogo,
-                            width: 120,
+                          child: Container(
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Image.asset(
+                              AssetsData.kLogo,
+                              height: 90,
+                            ),
                           ),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 5,
                         ),
                         Center(
                           child: Text(
                             "Welcome to Animato 👋".toUpperCase(),
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: Styles.kTextStyle14
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        const Text(
+                        Text(
                           "Login",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Styles.kTextStyle20
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                        const Text(
+                        Text(
                           "Login to continue using Animato ",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
+                          style:
+                              Styles.kTextStyle14.copyWith(color: Colors.grey),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
                         const Text(
                           "Email",
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
+                          style: Styles.kTextStyle14,
                         ),
                         const SizedBox(
                           height: 8,
@@ -106,9 +108,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         ),
                         const Text(
                           "Password",
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
+                          style: Styles.kTextStyle14,
                         ),
                         const SizedBox(
                           height: 8,
@@ -120,22 +120,35 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           },
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 8,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 2, bottom: 2),
+                          alignment: Alignment.topRight,
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot Password ?",
+                              style: Styles.kTextStyle14.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Center(
-                          child: SizedBox(
-                            width: 150,
-                            child: CustomButton(
-                              label: "Login",
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                } else {
-                                  autovalidateMode = AutovalidateMode.always;
-                                  setState(() {});
-                                }
-                              },
-                              //color: Colors.white,
-                            ),
+                          child: CustomButton(
+                            label: "Login",
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                              } else {
+                                autovalidateMode = AutovalidateMode.always;
+                                setState(() {});
+                              }
+                            },
+                            //color: Colors.white,
                           ),
                         ),
                         const SizedBox(

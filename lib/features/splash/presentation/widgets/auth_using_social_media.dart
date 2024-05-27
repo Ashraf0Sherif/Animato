@@ -40,5 +40,3 @@ class AuthUsingSocialMedia extends StatelessWidget {
     );
   }
 }
-
-

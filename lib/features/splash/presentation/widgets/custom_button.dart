@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {super.key,
-      required this.label,
-      required this.onPressed,
-      this.icon});
+      {super.key, required this.label, required this.onPressed, this.icon});
 
   final String label;
   final VoidCallback? onPressed;
@@ -13,21 +10,22 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ink(
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Colors.lightBlue, Colors.lightBlueAccent, Colors.lightBlue],
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blueGrey.withOpacity(0.7),
+          shadowColor: Colors.grey,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: const BorderSide(
+              color: Colors.white,
+            ),
+          ),
         ),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(20.0),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
-          alignment: Alignment.center,
-          child: Text(label),
-        ),
+        child: Text(label),
       ),
     );
   }
