@@ -13,7 +13,7 @@ class Animato extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GetMaterialApp(
-        home: SplashView(),
+        home: const SplashView(),
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
       ),
