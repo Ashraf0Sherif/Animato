@@ -1,6 +1,8 @@
+import 'package:animato/features/splash/presentation/widgets/social_media_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
+
 class AuthUsingSocialMedia extends StatelessWidget {
   const AuthUsingSocialMedia({
     super.key,
@@ -9,29 +11,34 @@ class AuthUsingSocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-        width: 270,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Image.asset(
-                AssetsData.kGoogle,
-                width: 40,
-              ),
-            ),
-            Image.asset(
-              AssetsData.kFacebook,
-              width: 40,
-            ),
-            Image.asset(
-              AssetsData.kApple,
-              width: 40,
-            ),
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SocialMediaButton(
+            label: "Google",
+            onPressed: () {},
+            icon: AssetsData.kGoogle,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          SocialMediaButton(
+            label: "Facebook",
+            onPressed: () {},
+            icon: AssetsData.kFacebook,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          SocialMediaButton(
+            label: "Apple",
+            onPressed: () {},
+            icon: AssetsData.kApple,
+          ),
+        ],
       ),
     );
   }
 }
+
+

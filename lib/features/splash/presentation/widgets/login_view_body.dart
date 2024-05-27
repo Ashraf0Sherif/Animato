@@ -4,6 +4,7 @@ import 'package:animato/features/splash/presentation/widgets/auth_using_number.d
 import 'package:flutter/material.dart';
 
 import 'auth_using_social_media.dart';
+import 'custom_button.dart';
 import 'custom_divider.dart';
 import 'my_behavior.dart';
 
@@ -29,7 +30,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             image: AssetImage(AssetsData.kBackground), fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black38.withOpacity(0.123),
         body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Form(
@@ -121,6 +122,25 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         const SizedBox(
                           height: 20,
                         ),
+                        Center(
+                          child: SizedBox(
+                            width: 150,
+                            child: CustomButton(
+                              label: "Login",
+                              onPressed: () async {
+                                if (_formKey.currentState!.validate()) {
+                                } else {
+                                  autovalidateMode = AutovalidateMode.always;
+                                  setState(() {});
+                                }
+                              },
+                              //color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         const Center(child: Text("Continue with")),
                         const SizedBox(
                           height: 20,
@@ -134,6 +154,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           height: 10,
                         ),
                         const AuthUsingNumber(),
+                        const SizedBox(
+                          height: 10,
+                        ),
                       ],
                     ),
                   ],
@@ -146,9 +169,3 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     );
   }
 }
-
-
-
-
-
-
