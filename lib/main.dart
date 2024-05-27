@@ -1,5 +1,6 @@
-import 'package:animato/core/utils/app_router.dart';
+import 'package:animato/features/splash/presentation/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const Animato());
@@ -11,8 +12,8 @@ class Animato extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: MaterialApp.router(
-        routerConfig: AppRouter.router,
+      child: GetMaterialApp(
+        home: SplashView(),
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
       ),
