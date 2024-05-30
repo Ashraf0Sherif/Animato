@@ -110,11 +110,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           child: CustomButton(
                             label: "Login",
                             onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                              } else {
-                                autovalidateMode = AutovalidateMode.always;
-                                setState(() {});
-                              }
+                              // if (_formKey.currentState!.validate()) {
+                              // } else {
+                              //   autovalidateMode = AutovalidateMode.always;
+                              //   setState(() {});
+                              // }
+                              AppRouter.pushReplacementNavigation(
+                                  view: AppRouter.kHomeView,milliseconds: 1000);
                             },
                             //color: Colors.white,
                           ),
