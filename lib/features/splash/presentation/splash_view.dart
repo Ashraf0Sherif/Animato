@@ -1,4 +1,4 @@
-import 'package:animato/core/utils/app_router.dart';
+import 'package:animato/core/router/app_router.dart';
 import 'package:animato/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

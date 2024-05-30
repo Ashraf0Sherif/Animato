@@ -1,14 +1,14 @@
 import 'package:animato/core/utils/assets.dart';
 import 'package:animato/core/utils/styles.dart';
-import 'package:animato/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/utils/app_router.dart';
-import 'auth_using_social_media.dart';
+import '../../../../core/router/app_router.dart';
 import '../../../../core/utils/widgets/custom_button.dart';
 import '../../../../core/utils/widgets/custom_divider.dart';
 import '../../../../core/utils/widgets/my_behavior.dart';
+import 'auth_using_social_media.dart';
+import 'login_form_body.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -18,8 +18,6 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-  String? email, password;
-
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -89,40 +87,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               Styles.kTextStyle14.copyWith(color: Colors.grey),
                         ),
                         const SizedBox(
-                          height: 8,
+                          height: 15,
                         ),
-                        const Text(
-                          "Email",
-                          style: Styles.kTextStyle14,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        CustomTextFormField(
-                          hintText: "Enter your email",
-                          onChanged: (text) {
-                            email = text;
-                          },
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const Text(
-                          "Password",
-                          style: Styles.kTextStyle14,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        CustomTextFormField(
-                          hintText: "Enter your password",
-                          onChanged: (text) {
-                            password = text;
-                          },
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
+                        const LoginFormBody(),
                         Container(
                           margin: const EdgeInsets.only(top: 2, bottom: 2),
                           alignment: Alignment.topRight,
@@ -158,7 +125,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text("Dont have an account ? "),
+                            const Text("Don't have an account ? "),
                             InkWell(
                               onTap: () {
                                 AppRouter.pushNavigation(

@@ -19,15 +19,15 @@ abstract class AppRouter {
     Get.to(
       _views[view],
       transition: transition ?? Transition.fade,
-      duration: Duration(milliseconds: milliseconds ?? 1200),
+      duration: Duration(milliseconds: milliseconds ?? 1500),
     );
   }
   static void pushReplacementNavigation(
       {required String view, Transition? transition, int? milliseconds}) {
-    Get.offAll(
+    Get.off(
       _views[view],
       transition: transition ?? Transition.fade,
-      duration: Duration(milliseconds: milliseconds ?? 1200),
+      duration: Duration(milliseconds: milliseconds ?? 1500),
     );
   }
 }

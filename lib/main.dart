@@ -14,7 +14,11 @@ class Animato extends StatelessWidget {
     return SafeArea(
       child: GetMaterialApp(
         home: const SplashView(),
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark().copyWith(
+          inputDecorationTheme: InputDecorationTheme(
+            floatingLabelStyle: TextStyle(color: Colors.lightBlue.shade300),
+          ),
+        ),
         debugShowCheckedModeBanner: false,
       ),
     );
